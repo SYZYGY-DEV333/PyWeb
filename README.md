@@ -7,6 +7,10 @@ PyWeb is a simple yet fully-funtional web browser made in Python. It is designed
 - Cookie Management
 - Tabbed interface
 
+## Planned features
+- Linux Installer
+- Better (smaller) Windows Excecutable
+
 ## How to Install
 ### Linux
 - Download PyQt 4 or 5 and Python 3 if you don't already have them
