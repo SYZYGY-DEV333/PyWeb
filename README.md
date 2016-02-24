@@ -21,8 +21,10 @@ PyWeb is a simple yet fully-funtional web browser made in Python. It is designed
 - (optional) Create a .desktop shortcut (see [this article](https://linuxcritic.wordpress.com/2010/04/07/anatomy-of-a-desktop-file/))
 
 ### Windows
-- Download the excecutable or installer
-- Install
+- Get Python
+- Download PyQt 4 or 5 and Python 3 if you don't already have them
+- Download the source code. Unzip to a directory.
+- create a shortcut to PyWeb.bat and you are done!
 
 ## Issues
-None as of now
+- under PyQt4, some Google webapps complain of an out-of date browser.
