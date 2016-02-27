@@ -24,7 +24,7 @@ yahoo = "http://us.search.yahoo.com/search?p=%s"
 duck = "https://duckduckgo.com/?q=%s"
 bing = "http://www.bing.com/search?q="
 
-setpages = open("bookmarks.txt", "r+")
+setpages = open("pyweb-files/bookmarks.txt", "r+")
 exec(setpages.readline())
 starturl = home_page
 exec(setpages.readline())
@@ -80,7 +80,7 @@ class BookmarksView(QMainWindow):
         self.saveTimer.start(500)
 
     def loadBookmarks(self):
-        try: f = open("bookmarks.txt", "r")
+        try: f = open("pyweb-files/bookmarks.txt", "r")
         except: return
         else:
             self.textEdit.clear()
@@ -90,7 +90,7 @@ class BookmarksView(QMainWindow):
     def saveBookmarks(self):
         if self._plainText != self.textEdit.toPlainText():
             self._plainText = self.textEdit.toPlainText()
-            f = open("bookmarks.txt", "w")
+            f = open("pyweb-files/bookmarks.txt", "w")
             f.write(self.textEdit.toPlainText())
             f.close()
             self.bookmarksUpdated.emit()
@@ -105,7 +105,7 @@ incognitoNetworkAccessManager.setCookieJar(incognitoCookieJar)
 
 def loadCookies():
     global cookieJar
-    try: f = open("cookies.json", "r")
+    try: f = open("pyweb-files/cookies.json", "r")
     except: return
     try: rawCookies = json.load(f)
     except:
@@ -118,7 +118,7 @@ def loadCookies():
 
 def saveCookies():
     global cookieJar
-    f = open("cookies.json", "w")
+    f = open("pyweb-files/cookies.json", "w")
     try: f.write(json.dumps([cookie.toRawForm().data().decode("utf-8") for cookie in cookieJar.allCookies()]))
     except: pass
     f.close()
@@ -245,21 +245,21 @@ class Browser(QMainWindow):
         self.findAction.setText("Find")
         self.findAction.setShortcut("Ctrl+F")
         self.findAction.triggered.connect(self.webView.find)
-        self.findAction.setIcon(QIcon("./icons/system-search.png"))
+        self.findAction.setIcon(QIcon("./pyweb-files/icons/system-search.png"))
         self.toolBar.addAction(self.findAction)
 
         self.findPreviousAction = QAction(self)
         self.findPreviousAction.setText("Find Next")
         self.findPreviousAction.setShortcut("Ctrl+Shift+G")
         self.findPreviousAction.triggered.connect(self.webView.findPrevious)
-        self.findPreviousAction.setIcon(QIcon("./icons/media-seek-backward.png"))
+        self.findPreviousAction.setIcon(QIcon("./pyweb-files/icons/media-seek-backward.png"))
         self.toolBar.addAction(self.findPreviousAction)
 
         self.findNextAction = QAction(self)
         self.findNextAction.setText("Find Next")
         self.findNextAction.setShortcut("Ctrl+G")
         self.findNextAction.triggered.connect(self.webView.findNext)
-        self.findNextAction.setIcon(QIcon("./icons/media-seek-forward.png"))
+        self.findNextAction.setIcon(QIcon("./pyweb-files/icons/media-seek-forward.png"))
         self.toolBar.addAction(self.findNextAction)
 
         self.locationBar = QLineEdit(self)
@@ -487,7 +487,7 @@ class MainWindow(QMainWindow):
             del self.closedTabs[-1]
 
     def loadBookmarks(self):
-        try: f = open("bookmarks.txt", "r")
+        try: f = open("pyweb-files/bookmarks.txt", "r")
         except: return
         else:
             self.bookmarks = []
@@ -497,7 +497,7 @@ class MainWindow(QMainWindow):
                 self.bookmarks.append(bookmark.replace("\n", ""))
 
     def saveBookmarks(self):
-        f = open("bookmarks.txt", "w")
+        f = open("pyweb-files/bookmarks.txt", "w")
         f.write("\n".join(self.bookmarks))
         f.close()
 
@@ -506,10 +506,10 @@ def main(argv):
     app.setApplicationName("PyWeb")
 
     app_icon = QIcon()
-    app_icon.addFile("./icons/pyweb-16.png")
-    app_icon.addFile("./icons/pyweb-24.png")
-    app_icon.addFile("./icons/pyweb-32.png")
-    app_icon.addFile("./icons/pyweb-48.png")
+    app_icon.addFile("./pyweb-files/icons/pyweb-16.png")
+    app_icon.addFile("./pyweb-files/icons/pyweb-24.png")
+    app_icon.addFile("./pyweb-files/icons/pyweb-32.png")
+    app_icon.addFile("./pyweb-files/icons/pyweb-48.png")
     
     app.setWindowIcon(app_icon)
 
