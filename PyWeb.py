@@ -4,8 +4,6 @@
 # Light, Fast web browser in Python and PyQt
 # Apache Version 2
 
-# edit search engine on line 275
-# edit home page on line 383
 import sys
 import json
 try:
@@ -21,7 +19,16 @@ except:
     from PyQt4.QtNetwork import *
     from PyQt4.QtWebKit import *
 
-starturl = "http://www.google.com/"
+google = "https://www.google.com/?q=%s"
+yahoo = "http://us.search.yahoo.com/search?p=%s"
+duck = "https://duckduckgo.com/?q=%s"
+bing = "http://www.bing.com/search?q="
+
+setpages = open("bookmarks.txt", "r+")
+exec(setpages.readline())
+starturl = home_page
+exec(setpages.readline())
+searchurl = search_engine
 
 def shortTitle(title=""):
     return title[:24] + '...' if len(title) > 24 else title
@@ -178,8 +185,8 @@ class WebView(QWebView):
         else:
             self.findText(self._findText, QWebPage.FindWrapsAroundDocument)
 
-    # Convenience function.
-    # Find previous instance of text.
+    # Convenience function
+    # Find previous instance of text
     def findPrevious(self):
         if not self._findText:
             self.find()
@@ -279,7 +286,7 @@ class Browser(QMainWindow):
         if "." in text:
             self.webView.load(QUrl.fromUserInput(str(text)))
         else:
-            self.webView.load(QUrl("https://www.google.com/?q=%s" % (str(text),)))
+            self.webView.load(QUrl(searchurl % (str(text),)))
 
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
