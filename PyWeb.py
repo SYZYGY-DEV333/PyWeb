@@ -21,6 +21,8 @@ except:
     from PyQt4.QtNetwork import *
     from PyQt4.QtWebKit import *
 
+starturl = "http://www.google.com/"
+
 def shortTitle(title=""):
     return title[:24] + '...' if len(title) > 24 else title
 
@@ -331,7 +333,7 @@ class MainWindow(QMainWindow):
         self.loadBookmarks()
         
         self.tabWidget = QTabWidget(self)
-        self.tabWidget.tabBar().setShape(QTabBar.RoundedSouth)
+        self.tabWidget.tabBar().setShape(QTabBar.RoundedNorth)
         self.tabWidget.setMovable(True)
         self.tabWidget.setTabsClosable(True)
         self.tabWidget.setDocumentMode(True)
@@ -385,7 +387,7 @@ class MainWindow(QMainWindow):
 
         if self.tabWidget.count() < 1:
             self.addTab()
-            self.tabWidget.currentWidget().loadURL("https://www.google.com")
+            self.tabWidget.currentWidget().loadURL(starturl)
 
     def about(self):
         QMessageBox.about(self, "About PyWeb",
