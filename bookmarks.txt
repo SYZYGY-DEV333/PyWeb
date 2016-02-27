@@ -1,1 +1,6 @@
-http://www.google.com/
+home_page = "http://www.google.com/"
+search_engine = google
+www.google.com
+www.yahoo.com
+www.youtube.com
+www.facebook.com
