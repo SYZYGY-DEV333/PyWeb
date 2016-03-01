@@ -1,5 +1,5 @@
 # PyWeb
-PyWeb is a simple yet fully-funtional web browser made in Python. It is designed to do everything a good web browser needs to do as a viable alternative to Midori, NetSurf, and other small browsers. It is made with PyQt and Python 3, and will run on any platform that supports both of those. It renders with WebKit, so expect good quality. It is made to run on linux and not tested with Windows, although if you have Python 3 and PyQt4 or 5, it will work. You can use the provided package on Linux which will be provided starting at version 1.3 on the Releases page.
+PyWeb is a simple yet fully-funtional web browser made in Python. It is designed to do everything a good web browser needs to do as a viable alternative to Midori, NetSurf, and other small browsers. It is made with PyQt and Python 3, and will run on any platform that supports both of those. It renders with WebKit, so expect good quality. It is made to run on linux and not tested with Windows. Apple may work. You can use the provided package on Linux which will be provided starting at version 1.3 on the Releases page.
 
 ## Features
 - Bookmarks
@@ -7,8 +7,9 @@ PyWeb is a simple yet fully-funtional web browser made in Python. It is designed
 - Cookie Management
 - Tabbed interface
 
-## Planned features
+## Planned features (help me with these)
 - Better compatibility with WebGL
+- Implement a simple file downloader
 
 ## Basic How-To
 Change home page and search engine under bookmarks. Search engines currently supported and their value:
